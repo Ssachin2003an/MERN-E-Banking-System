@@ -2,12 +2,12 @@ import axios from "axios";
 
 const API_URL =
   process.env.NODE_ENV === "production"
-    ? "https://ebank-2t3r.onrender.com/api/users/"
+    ? "https://mern-e-banking-system.onrender.com/api/users/"
     : "https://mern-e-banking-system.onrender.com/api/users/";
 
 const API_URL_REQUEST =
   process.env.NODE_ENV === "production"
-    ? "https://ebank-2t3r.onrender.com/api/request/create"
+    ? "https://mern-e-banking-system.onrender.com/api/request/create"
     : "https://mern-e-banking-system.onrender.com/api/request/create";
 
 //Get User
