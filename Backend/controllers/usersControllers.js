@@ -146,10 +146,10 @@ const userLogin = async (req, res) => {
     }
 
     return res.status(200).json({
-      id: user.id,
-      name: user.user_name,
+      _id: user._id,
+      user_name: user.user_name,
       email: user.email,
-      token: generateUsersToken(user.id, user.email),
+      token: generateUsersToken(user._id, user.email),
     });
   } catch (error) {
     console.error("Login error:", error.message);
