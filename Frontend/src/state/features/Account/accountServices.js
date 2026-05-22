@@ -3,7 +3,7 @@ import axios from "axios";
 const API_URL =
   process.env.NODE_ENV === "production"
     ? "https://ebank-2t3r.onrender.com/api/account/"
-    : "http://localhost:5000/api/account/";
+    : "https://mern-e-banking-system.onrender.com/api/account/";
 
 //Get Account
 const getAccount = async (payload) => {
