@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "Backend/server.js",
-  "scripts": {
-    "both": "concurrently \"npm:dev\" \"npm:dev2\"",
-    "start": "node Backend/server.js",
-    "dev": "nodemon Backend/server.js",
-    "dev2": "cd Frontend && npm run dev",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix Frontend && npm run build --prefix Frontend"
-  },
+"scripts": {
+  "both": "concurrently \"npm:dev\" \"npm:dev2\"",
+  "start": "node Backend/server.js",
+  "dev": "nodemon Backend/server.js",
+  "dev2": "cd Frontend && npm run dev",
+  "build": "cd Frontend && npm install && npm run build",
+  "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix Frontend && npm run build --prefix Frontend"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
