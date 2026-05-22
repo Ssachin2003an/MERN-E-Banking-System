@@ -37,34 +37,44 @@ const getOneAdmin = async (req, res) => {
 //@route  >>>> GET /api/admins/login
 //@Access >>>> privete(admins + owner)
 const adminLogin = async (req, res) => {
-  //check for empty body
-  if (!req.body.email || !req.body.password)
-    return res.status(404).send("empty body request");
+  if (!req.body.email || !req.body.password) {
+    return res.status(400).send("Empty body request");
+  }
+
   const { email, password } = req.body;
-  let admin;
+
   try {
-    admin = await Admin.findOne({ email });
-    //check for password
-    const isCorrectPassword = await bcrypt.compare(password, admin.password);
-    if (isCorrectPassword) {
-      return res.status(200).json({
-        id: admin.id,
-        name: admin.admin_name,
-        email: admin.email,
-        role: admin.role,
-        token: generateAdminsToken(admin.id, admin.email, admin.role),
-      });
-    } else {
-      return res.status(404).send("Wrong Credintials - wrong password");
-    }
-  } catch (error) {
-    if (!admin || !isCorrectPassword) {
-      return res
-        .status(404)
-        .send("Wrong Credintials - wrong email or password");
+    const admin = await Admin.findOne({ email });
+
+    if (!admin) {
+      return res.status(404).send("Admin not found");
     }
 
-    res.status(500).send("Ooops!! Something Went Wrong, Try again...");
+    const isCorrectPassword = await bcrypt.compare(
+      password,
+      admin.password
+    );
+
+    if (!isCorrectPassword) {
+      return res.status(404).send("Wrong password");
+    }
+
+    return res.status(200).json({
+      id: admin.id,
+      name: admin.admin_name,
+      email: admin.email,
+      role: admin.role,
+      token: generateAdminsToken(
+        admin.id,
+        admin.email,
+        admin.role
+      ),
+    });
+  } catch (error) {
+    console.log(error);
+    return res
+      .status(500)
+      .send("Ooops!! Something Went Wrong, Try again...");
   }
 };
 
