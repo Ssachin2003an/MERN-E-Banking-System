@@ -1,0 +1,63 @@
+[{
+  "_id": 2525500313,
+  "user_name": "samarth shetty",
+  "email": "samarth@gmail.com",
+  "password": "$2a$10$rohrh8meaTHlzVoAHpqP2OQP695aMcpmLM2k6IDUoHY54urHxQV.C",
+  "phone": 1012345678,
+  "full_addresse": "kundapura",
+  "zip_code": 56009,
+  "role": "Client",
+  "user_status": 0,
+  "no_of_account": 0,
+  "accounts": [],
+  "notifications": [],
+  "createdAt": {
+    "$date": "2025-07-07T07:57:25.123Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-07T07:57:25.123Z"
+  },
+  "__v": 0
+},
+{
+  "_id": 2525500316,
+  "user_name": "samarth shetty",
+  "email": "samarth1@gmail.com",
+  "password": "$2a$10$JN2NnY62GB6UQvMd8/ehP.iLbbtFWgycf/tPb9n7roUGGzcwf4bS2",
+  "phone": 1012345679,
+  "full_addresse": "kundapura",
+  "zip_code": 56009,
+  "role": "Client",
+  "user_status": 0,
+  "no_of_account": 0,
+  "accounts": [],
+  "notifications": [],
+  "createdAt": {
+    "$date": "2025-07-07T07:57:43.378Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-07T07:57:43.378Z"
+  },
+  "__v": 0
+},
+{
+  "_id": 2525500318,
+  "user_name": "Geetha A R",
+  "email": "geetha@gmail.com",
+  "password": "$2a$10$S7B0UvOeyyRDmtlRVYac/ONl3XbDjlTvI7QBBRAUs89zUK4Q5DGIS",
+  "phone": 1098765488,
+  "full_addresse": "Bengaluru",
+  "zip_code": 56876,
+  "role": "Client",
+  "user_status": 0,
+  "no_of_account": 0,
+  "accounts": [],
+  "notifications": [],
+  "createdAt": {
+    "$date": "2025-07-08T12:23:47.007Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-08T12:23:47.007Z"
+  },
+  "__v": 0
+}]

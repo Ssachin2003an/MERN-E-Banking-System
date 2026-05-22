@@ -1,0 +1,20 @@
+[
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "john.doe@example.com",
+    "address": "123 Main Street, Springfield",
+    "password": "$2b$10$e0MYzXyjpJS7Pd0RVvHwHeFx4V0JOCaO.fF.QYzI4wDQx9t/FsJ7W",
+    "phoneNumber": "01008879800",
+    "postalCode": "12345"
+  },
+  {
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "email": "jane.smith@example.com",
+    "address": "456 Elm Avenue, Metropolis",
+    "password": "$2b$10$qgk6vB7kGbnmF9/ZbLJoZe8oUQJQG5ZfH1mZ0ebUJcYPDfYxvK.jS",
+    "phoneNumber": "01005551234",
+    "postalCode": "54321"
+  }
+]
