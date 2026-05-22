@@ -111,3 +111,10 @@ connectToMongoose()
   .catch((err) => {
     console.error("Failed to connect to MongoDB:", err);
   });
+const path = require("path");
+
+app.use(express.static(path.join(__dirname, "../Frontend/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../Frontend/dist/index.html"));
+});
