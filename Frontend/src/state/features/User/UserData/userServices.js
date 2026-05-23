@@ -18,9 +18,9 @@ const getUser = async (userData) => {
     },
   });
 
-  const data = res.data;
+  console.log("USER RESPONSE:", res.data);
 
-  return data;
+  return res.data;
 };
 
 //UPDATE User
