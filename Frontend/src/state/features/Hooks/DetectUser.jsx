@@ -7,7 +7,7 @@ export default function UseDetectUser() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (user) {
+    if (user && user.id && user.token) {
       const userData = {
         token: user.token,
         id: user.id,
@@ -15,7 +15,7 @@ export default function UseDetectUser() {
 
       dispatch(getUser(userData));
     }
-  }, [user]);
+  }, [user, dispatch]);
 
   return user;
 }
