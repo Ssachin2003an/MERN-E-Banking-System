@@ -70,26 +70,15 @@ export default function Register() {
       return;
     }
 
-    // const userData = {
-    //   name: `${firstName.trim()} ${lastName.trim()}`,
-    //   email: email.trim(),
-    //   phone: phone.trim(),
-    //   postal: postCode.trim(),
-    //   addresse: address.trim(),
-    //   password,
-    // };
-  const userData = {
-  user_name: `${firstName.trim()} ${lastName.trim()}`,
-  email: email.trim(),
-  phone: Number(phone.trim()),           // ✅ phone must be a number
-  zip_code: Number(postCode.trim()),     // ✅ zip_code must be a number
-  full_addresse: address.trim(),         // ✅ must match model spelling
-  password,
-};
-
-
-
-
+    const userData = {
+      user_name: `${firstName.trim()} ${lastName.trim()}`,
+      email: email.trim(),
+      phone: Number(phone.trim()),
+      zip_code: Number(postCode.trim()),
+      full_addresse: address.trim(),
+      password,
+    };
+  console.log("data:", userData);
     dispatch(register(userData));
   };
 

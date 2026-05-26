@@ -1,9 +1,7 @@
 import axios from "axios";
 
 const API_URL =
-  process.env.NODE_ENV === "production"
-    ? "https://mern-e-banking-system.onrender.com/api/account/"
-    : "https://mern-e-banking-system.onrender.com/api/account/";
+  (import.meta.env.NODE_ENV === "production" ? import.meta.env.VITE_PROD_API_URL : import.meta.env.VITE_DEV_API_URL) + "/account/";
 
 //Get Account
 const getAccount = async (payload) => {
@@ -20,7 +18,7 @@ const getAccount = async (payload) => {
 //Transfer Balance
 const transfer = async (payload) => {
   const res = await axios.put(
-    API_URL + "/transfer/" + `${payload.from}/` + payload.to,
+    API_URL + "transfer/" + `${payload.from}/` + payload.to,
     payload,
     {
       headers: {

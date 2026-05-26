@@ -1,9 +1,7 @@
 import axios from "axios";
 
 const API_URL =
-  process.env.NODE_ENV === "production"
-    ? "https://mern-e-banking-system.onrender.com/api/users/"
-    : "https://mern-e-banking-system.onrender.com/api/users/";
+  (import.meta.env.NODE_ENV === "production" ? import.meta.env.VITE_PROD_API_URL : import.meta.env.VITE_DEV_API_URL) + "/users/";
 
 //Get All Users
 const getAllUsers = async (adminData) => {

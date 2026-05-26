@@ -7,7 +7,6 @@ import Register from "../../components/forms/userForms/Register";
 export const RegisterPage = () => {
   const dispatch = useDispatch();
 
-  //clean up  status (on mount, unmount)
   UseResetStatus(() => {
     dispatch(resetAuthStatus());
   });

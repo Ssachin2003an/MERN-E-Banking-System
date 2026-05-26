@@ -139,9 +139,9 @@ export const AccountDetails = ({ account }) => {
   const [showBalance, setShowBalance] = useState(false);
 
   const formatCurrency = (amount) => {
-    return new Intl.NumberFormat("en-US", {
+    return new Intl.NumberFormat("en-IN", {
       style: "currency",
-      currency: "USD",
+      currency: "INR",
     }).format(amount);
   };
 
@@ -174,8 +174,8 @@ export const AccountDetails = ({ account }) => {
         <p className=" w-full lg:w-auto bg-slate-900  px-4 py-2 rounded-md">
           Balance
         </p>
-        <span className="flex items-center w-full lg:w-auto text-slate-900 bg-white px-4 py-2 rounded-md">
-          {showBalance ? formatCurrency(account.balance) : '• • • • •'}
+        <span className="flex items-center justify-center w-full lg:w-auto text-slate-900 bg-white px-4 py-2 rounded-md">
+          <span className="flex-1">{showBalance ? formatCurrency(account.balance) : '• • • • •'}</span>
           <button
             onClick={() => setShowBalance(!showBalance)}
             className="ml-2 text-blue-800 focus:outline-none"

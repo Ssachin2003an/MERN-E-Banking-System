@@ -10,7 +10,7 @@ const connectToMongoose = async () => {
     });
     console.log(`Connected to Mongoose Through ${db.connection.host}`);
   } catch (error) {
-    console.log(error);
+    console.log("connection error:", error);
     process.exit(1);
   }
 };

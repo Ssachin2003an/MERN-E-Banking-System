@@ -1,9 +1,7 @@
 import axios from "axios";
 
 const API_URL =
-  process.env.NODE_ENV === "production"
-    ? "https://mern-e-banking-system.onrender.com/api/admins/"
-    : "https://mern-e-banking-system.onrender.com/api/admins/";
+  (import.meta.env.NODE_ENV === "production" ? import.meta.env.VITE_PROD_API_URL : import.meta.env.VITE_DEV_API_URL) + "/admins/";
 
 //Register Admin
 const adminRegister = async (payload) => {
