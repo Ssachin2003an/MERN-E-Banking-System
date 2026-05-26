@@ -1,47 +1,65 @@
 import axios from "axios";
 
-const API_URL =
-  (import.meta.env.NODE_ENV === "production" ? import.meta.env.VITE_PROD_API_URL : import.meta.env.VITE_DEV_API_URL) + "/users/";
+const BASE_URL =
+  import.meta.env.MODE === "production"
+    ? import.meta.env.VITE_PROD_API_URL
+    : import.meta.env.VITE_DEV_API_URL;
 
-//Login User
-const login = async (userData) => {
-  const res = await axios.post(API_URL + "login", userData, {
-    headers: {
-      "content-type": "application/json",
-    },
-  });
-  const data = res.data;
+const API_URL = `${BASE_URL}/users`;
 
-  return data;
-};
+// Register User
 const register = async (userData) => {
   try {
-    
-    const res = await axios.post(`${API_URL}/users/register`, userData, {
-      headers: {
-        "content-type": "application/json",
-      },
-    });
-    console.log("NODE_ENV:", import.meta.env.VITE_NODE_ENV);
-    console.log("PROD_API_URL:", import.meta.env.VITE_PROD_API_URL);
-    console.log("DEV_API_URL:", import.meta.env.VITE_DEV_API_URL);
-    console.log("FINAL API_URL:", API_URL);
-    return res.data;
+    const response = await axios.post(
+      `${API_URL}/register`,
+      userData,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    return response.data;
   } catch (error) {
-    console.error("Registration error:", error);
+    console.error("Register Error:", error.response?.data || error.message);
     throw error;
   }
 };
 
-//Logout
+// Login User
+const login = async (userData) => {
+  try {
+    const response = await axios.post(
+      `${API_URL}/login`,
+      userData,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    if (response.data) {
+      localStorage.setItem("user", JSON.stringify(response.data));
+    }
+
+    return response.data;
+  } catch (error) {
+    console.error("Login Error:", error.response?.data || error.message);
+    throw error;
+  }
+};
+
+// Logout User
 const logout = () => {
-  return;
+  localStorage.removeItem("user");
 };
 
 const authService = {
   register,
-  logout,
   login,
+  logout,
 };
 
 export default authService;

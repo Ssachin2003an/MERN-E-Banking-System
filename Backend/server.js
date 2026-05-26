@@ -64,7 +64,7 @@
 //   .catch((err) => {
 //     console.log(err);
 //   });
-require("dotenv").config();
+require("dotenv").config({ path: __dirname + "/.env" });
 const path = require("path");
 const express = require("express");
 const cors = require("cors");

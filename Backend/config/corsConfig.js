@@ -1,8 +1,11 @@
 /* CORS domains configuration */
 
-// Devlopement CORS Configurations//
+// Development CORS Configurations //
 
-const devWhitelist = ["http://localhost:3000"];
+const devWhitelist = [
+  "http://localhost:3000",
+  "http://localhost:3001",
+];
 
 const corsDevOptions = {
   origin: function (origin, callback) {
@@ -16,7 +19,7 @@ const corsDevOptions = {
   credentials: true,
 };
 
-// Production CORS Configurations//
+// Production CORS Configurations //
 
 const domainsFromEnv = process.env.CORS_DOMAINS || "";
 
