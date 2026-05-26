@@ -1,47 +1,71 @@
 import axios from "axios";
 
-const API_URL =
-  (import.meta.env.NODE_ENV === "production" ? import.meta.env.VITE_PROD_API_URL : import.meta.env.VITE_DEV_API_URL) + "/admins/";
+const BASE_URL =
+  import.meta.env.MODE === "production"
+    ? import.meta.env.VITE_PROD_API_URL
+    : import.meta.env.VITE_DEV_API_URL;
 
-//Login Admin
+const API_URL = `${BASE_URL}/admins`;
+
+// Login Admin
 const adminLogin = async (adminData) => {
-  const res = await axios.post(API_URL + "login", adminData, {
-    headers: {
-      "content-type": "application/json",
-    },
-  });
-  const data = res.data;
+  try {
+    const res = await axios.post(
+      `${API_URL}/login`,
+      adminData,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
-  return data;
+    if (res.data) {
+      localStorage.setItem("admin", JSON.stringify(res.data));
+    }
+
+    return res.data;
+  } catch (error) {
+    console.log(
+      "Admin Login Error:",
+      error.response?.data || error.message
+    );
+    throw error;
+  }
 };
 
-//Logout
+// Logout
 const adminLogout = () => {
-  return;
+  localStorage.removeItem("admin");
 };
 
-//Get Admin
+// Get Admin
 const getAdmin = async (adminData) => {
-  const res = await axios.get(API_URL + adminData.id, {
-    headers: {
-      authorization: `Bearer ${adminData.token}`,
-    },
-  });
-  const data = res.data;
+  const res = await axios.get(
+    `${API_URL}/${adminData.id}`,
+    {
+      headers: {
+        authorization: `Bearer ${adminData.token}`,
+      },
+    }
+  );
 
-  return data;
+  return res.data;
 };
 
-//Update Admin
+// Update Admin
 const updateAdmin = async (adminData) => {
-  const res = await axios.put(API_URL + adminData.id, adminData, {
-    headers: {
-      authorization: `Bearer ${adminData.token}`,
-    },
-  });
-  const data = res.data;
+  const res = await axios.put(
+    `${API_URL}/${adminData.id}`,
+    adminData,
+    {
+      headers: {
+        authorization: `Bearer ${adminData.token}`,
+      },
+    }
+  );
 
-  return data;
+  return res.data;
 };
 
 const adminAuthServices = {
